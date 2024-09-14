@@ -1,1 +1,1 @@
-"{\"nomeDoProfessor\": \"Christopher\", \"horarioDeAtendimento\": \"Sexta-feira, 19:00\", \"periodo\": \"Noturno\", \"sala\": \"6\", \"predio\": [\"1\", \"2\", \"3\", \"4\", \"6\"]}"
+{"nomeDoProfessor": "Christopher", "horarioDeAtendimento": "Sexta-feira, 19:00", "periodo": "Noturno", "sala": "6", "predio": ["1", "2", "3", "4", "6"]}
