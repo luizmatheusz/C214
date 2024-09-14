@@ -1,6 +1,6 @@
-import json
 import requests
 
+# Função que calcula 
 def calc_predio(nSala):
     nSala = int(nSala)
     if(nSala >= 1 and nSala <= 5):
