@@ -28,6 +28,8 @@ class TestAtendimento(unittest.TestCase):
         
     # Início dos testes
     # ... Sucesso
+    
+    # Testa resultado da função que calcula a sala
     def test_calc_predio(self):
         self.assertEqual(calc_predio('1'), '1')  # Sala 1 deve resultar em predio = 1
         self.assertEqual(calc_predio('5'), '1')  # Sala 5 deve resultar em predio = 1
@@ -35,10 +37,12 @@ class TestAtendimento(unittest.TestCase):
         self.assertEqual(calc_predio('10'), '2')  # Sala 10 deve resultar em predio = 2
         self.assertEqual(calc_predio('11'), '3')  # Sala 11 deve resultar em predio = 3
         
+    # Testa se as informações são um dicionário
     def test_get_atendimento_type(self):
         data = get_atendimento()
         self.assertIsInstance(data, dict)
 
+    # Testa se as informações batem
     def test_get_atendimento_values(self):
         data = get_atendimento()
         self.assertEqual(data['nomeDoProfessor'], 'Christopher')
@@ -46,6 +50,7 @@ class TestAtendimento(unittest.TestCase):
         self.assertEqual(data['periodo'], 'Noturno')
         self.assertEqual(data['sala'], '6')
         
+    # Testa os tipos das informações retornadas, separadamente
     def test_get_atendimento_values_type(self):
         data = get_atendimento()
         self.assertIsInstance(data['nomeDoProfessor'], str)
@@ -54,17 +59,21 @@ class TestAtendimento(unittest.TestCase):
         self.assertIsInstance(data['predio'], list)
         self.assertIsInstance(data['horarioDeAtendimento'], str)
         
+    # Testa se as chaves chegam corretamente
     def test_get_atendimento_keys(self):
         data = get_atendimento()
         expected_keys = {'nomeDoProfessor', 'horarioDeAtendimento', 'sala', 'predio', 'periodo'}
         self.assertTrue(expected_keys.issubset(data.keys()))
         
+    # Testa se o valor da sala está no alcance permitido
     def test_get_atendimento_sala_range(self):
         data = get_atendimento()
         self.assertGreaterEqual(int(data['sala']), 1)
         self.assertLessEqual(int(data['sala']), 25)
         
     # ... Falha
+    
+    # Testa como se comporta quando recebe um dicionário vazio do servidor
     def test_get_atendimento_empty_response(self):
         self.mock_response.json.return_value = {}
         data = get_atendimento()
