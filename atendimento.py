@@ -1,6 +1,7 @@
+# Bibliotecas
 import requests
 
-# Função que calcula 
+# Função que calcula o prédio em que fica a sala
 def calc_predio(nSala):
     nSala = int(nSala)
     if(nSala >= 1 and nSala <= 5):
@@ -18,6 +19,7 @@ def calc_predio(nSala):
     elif(nSala >= 21 and nSala <= 25):
         return '6'
 
+# Função que recebe as informações do atendimento direto do servidor
 def get_atendimento():
     response = requests.get(f"http://api.inatel.com/atendimento").json() # URL hipotética para obtenção das informações
     
